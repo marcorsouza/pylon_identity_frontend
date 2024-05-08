@@ -16,9 +16,12 @@
       {
         "name": "next"
       }
-    ],
+    ]/*,
     "paths": {
       "@/*": ["./*"]
+    }*/,
+    "paths": {
+      "@/*": ["./components/*", "./pages/*"]  // Ajuste conforme sua organização de arquivos
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

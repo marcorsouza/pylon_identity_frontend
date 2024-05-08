@@ -1,0 +1,190 @@
+/* styles/globals.css */
+body {
+  margin: 0;
+  overflow-x: hidden; /* Evita scroll horizontal se a largura total exceder 100vw */
+}
+
+.layout {
+  display: grid;
+  grid-template-areas:
+    "sidebar header"
+    "sidebar main"
+    "sidebar footer";
+  grid-template-columns: 300px 1fr; /* Define largura fixa de 200px para o sidebar */
+  grid-template-rows: auto 1fr auto;
+  height: 100vh; /* Define a altura total da grid para a altura da viewport */
+  overflow: hidden; /* Evita scroll desnecessário dentro do layout */
+}
+
+.header {
+  grid-area: header;
+  background: #231f31;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  justify-content: space-between;
+  height: 80px; /* Altura explícita pode ajudar se houver problemas de sobreposição */
+  z-index: 1; /* Eleva o stack order para evitar sobreposições indesejadas */
+}
+
+/* Adicionando especificidade para combater estilos globais que possam afetar */
+.layout .header {
+  color: #333; /* Define uma cor específica para o texto do header */
+  border-bottom: 1px solid #3616aa; /* Define um visual claramente delimitado */
+}
+
+/* Reset específico para componentes PrimeReact dentro do header, se necessário */
+.header .primereact-component-class {
+  all: unset; /* Anula todos os estilos por padrão, redefina conforme necessário */
+}
+
+/* Ajustes adicionais */
+.header > * {
+  margin: auto 0; /* Centraliza verticalmente todos os itens diretos no header */  
+}
+
+.header-breadcrumb {
+  background-color: #231f31; /* Cor de fundo igual ao header */
+  padding: 10px 20px; /* Espaçamento interno para não ficar colado nas bordas */
+  margin-right: auto; /* Garante que o breadcrumb não fique colado ao menubar */
+  border: 0px;
+}
+
+
+.header-breadcrumb .p-menuitem-separator,
+.header-breadcrumb .p-menuitem-text{
+  color:#f4f4f4;
+}
+
+.header-breadcrumb .p-menuitem, 
+.header-breadcrumb .p-menuitem-link{ 
+  padding: 10px 5px;
+}
+
+.header-breadcrumb .p-breadcrumb-list .p-menuitem:not(:first-child) .p-menuitem-link:hover {
+  font-weight: bold;
+  padding: 10px 4px;
+}
+
+.menubar-right {
+  margin-left: auto; /* Empurra o Menubar para a direita */
+}
+
+.profile-item {
+  margin-top: 10px;
+}
+
+.user-avatar {
+  box-shadow: 0 0 8px rgba(0,0,0,0.5); /* Adiciona sombra ao redor da imagem ao passar o mouse */
+}
+
+#popup_menu {
+  z-index: 1000; /* Garante que o menu apareça acima de outros elementos */
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background: #231f31;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* Adiciona scroll ao sidebar se necessário */
+  padding: 10px;
+}
+
+/* styles/globals.css */
+
+.app-logo {
+  display: flex; /* Usa flexbox para alinhar o logo e o texto */
+  justify-content: space-between; /* Espaça os elementos uniformemente */
+  align-items: center; /* Centraliza os elementos verticalmente */
+  padding: 10px;
+  background-color: #231f31; 
+  height: 60px; /* Altura do app-logo para centralização vertical */
+  
+}
+
+.app-logo img {
+  width: 64px; /* Largura do logo */
+  height: 64px; /* Altura do logo */
+}
+
+.app-logo span {
+  width: 200px; /* Largura do texto */
+  color: white; /* Cor do texto */
+  font-size: 30px;
+  font-weight: bold;
+  margin-left: 0.5em;
+}
+
+.menu-item {
+  margin-top: 10px;
+}
+
+.menu-item .p-menuitem-content {
+  width: 90%;
+  margin-left: 5%;
+}
+
+.menu-item .p-menuitem-content:hover {
+  box-shadow: 0 0 8px rgba(0,0,0,0.5); 
+  width: 90%;
+  border-radius: 5px;
+  background-color: #231f31;
+}
+
+.menu-item .p-menuitem-content:hover .p-menuitem-text {
+  color: white;
+}
+
+.menu-item .p-focus .p-menuitem-content  {
+  box-shadow: 0 0 8px rgba(0,0,0,0.5); 
+  width: 90%;
+  border-radius: 5px;
+  background-color: #231f31;
+  font-weight: bold;
+}
+
+.menu-item .p-focus .p-menuitem-content .p-menuitem-link .p-menuitem-text {
+  color: white;
+}
+
+.menu-item .p-menuitem-link:hover {
+  font-weight: bold;
+  color: white;
+}
+
+.main {
+  grid-area: main;
+  padding: 20px;
+  overflow-y: auto; /* Permite scroll no conteúdo principal se necessário */
+}
+
+.footer {
+  grid-area: footer;
+  background-color: #231f31; 
+  text-align: center;
+  padding: 10px;
+  height: 80px; /* Altura explícita pode ajudar se houver problemas de sobreposição */
+
+}
+
+.login-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.p-field {
+  margin-bottom: 1.5em;
+}
+
+form.p-fluid {
+  max-width: 360px;
+  margin: 20px;
+  padding: 20px;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
