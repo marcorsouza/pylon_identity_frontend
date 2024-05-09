@@ -118,3 +118,13 @@ form.p-fluid {
 .forgot-password-link:hover {
   text-decoration: underline;
 }
+
+.login-form button.p-button {
+  background-color: var(--blue-900, #0d3c61) !important;
+  border-color: var(--blue-900, #0d3c61) !important;
+}
+
+.login-form button:hover {
+  background-color: #09507a !important;
+  border-color: #09507a !important;
+}

@@ -21,12 +21,12 @@
 }
 
 /* Ajuste do botão se necessário, mantendo consistência com a página de login */
-button.p-button {
+.not-found-container button.p-button {
   background-color: var(--blue-900, #0d3c61) !important;
   border-color: var(--blue-900, #0d3c61) !important;
 }
 
-button.p-button:hover {
+.not-found-container button.p-button:hover {
   background-color: #09507a !important;
   border-color: #09507a !important;
 }
