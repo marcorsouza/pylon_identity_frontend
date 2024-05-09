@@ -1,9 +1,9 @@
 // components/Layout.tsx
 
-import Header from './Page/Header';
-import Sidebar from './Page/Sidebar';
-import Main from './Page/Main';
-import Footer from './Page/Footer';
+import Header from "./Page/Header";
+import Sidebar from "./Page/Sidebar";
+import Main from "./Page/Main";
+import Footer from "./Page/Footer";
 
 export default function RootLayout({
   children,

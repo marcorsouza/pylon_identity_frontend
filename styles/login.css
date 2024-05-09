@@ -1,20 +1,20 @@
 /* styles/login.css */
 
 .outer-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(to bottom, #231f31 0%, #0a061a 100%);
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom, #231f31 0%, #0a061a 100%);
+}
 
-  .login-page {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 70%; /* Adjust based on your preference */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25); /* Optional shadow for emphasis */
-    height: 60%;
-  }
+.login-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 70%; /* Adjust based on your preference */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25); /* Optional shadow for emphasis */
+  height: 60%;
+}
 
 .login-background {
   background: linear-gradient(to bottom, #125386 0%, #3479ae 100%);
@@ -49,68 +49,72 @@ form.p-fluid {
 }
 
 .p-field {
-    margin-bottom: 1.5em;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .p-field input, .p-field .p-password input {
-    padding: 0.8em 2.5em;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    width: 100%; /* Garante que o input use toda a largura disponível */
-  }
-  
-  .p-field input::placeholder, .p-field .p-password input::placeholder {
-    color: #888; /* Define a cor dos placeholders */
-  }
-  
-  .p-field input:focus, .p-field .p-password input:focus {
-    border-color: #125386; /* Cor do tema para o foco */
-  }
-  
-  
-  .p-field-checkbox {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    margin-bottom: 1em;
-  }
+  margin-bottom: 1.5em;
+  display: flex;
+  flex-direction: column;
+}
 
-  .p-field-checkbox label {
-    margin-left: 0.5em;
-  }
-  
-  .forgot-password-link {
-    margin-left: auto; /* Aligns the link to the right */
-  }
-  
-  .register-link {
-    display: block; /* Makes the link full width */
-    text-align: center; /* Centers the link text */
-    color: #007ad9;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .register-link:hover, .forgot-password-link:hover {
-    text-decoration: underline;
-  }
+.p-field input,
+.p-field .p-password input {
+  padding: 0.8em 2.5em;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  width: 100%; /* Garante que o input use toda a largura disponível */
+}
 
-  
-  .form-links {
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 2em;
-  }
-  
-  .register-link, .forgot-password-link {
-    color: #007ad9;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .register-link:hover, .forgot-password-link:hover {
-    text-decoration: underline;
-  }
+.p-field input::placeholder,
+.p-field .p-password input::placeholder {
+  color: #888; /* Define a cor dos placeholders */
+}
+
+.p-field input:focus,
+.p-field .p-password input:focus {
+  border-color: #125386; /* Cor do tema para o foco */
+}
+
+.p-field-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.p-field-checkbox label {
+  margin-left: 0.5em;
+}
+
+.forgot-password-link {
+  margin-left: auto; /* Aligns the link to the right */
+}
+
+.register-link {
+  display: block; /* Makes the link full width */
+  text-align: center; /* Centers the link text */
+  color: #007ad9;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.register-link:hover,
+.forgot-password-link:hover {
+  text-decoration: underline;
+}
+
+.form-links {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 2em;
+}
+
+.register-link,
+.forgot-password-link {
+  color: #007ad9;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.register-link:hover,
+.forgot-password-link:hover {
+  text-decoration: underline;
+}
