@@ -167,24 +167,3 @@ body {
   height: 80px; /* Altura explícita pode ajudar se houver problemas de sobreposição */
 
 }
-
-.login-layout {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #231f31;
-}
-
-.p-field {
-  margin-bottom: 1.5em;
-}
-
-form.p-fluid {
-  max-width: 360px;
-  margin: 20px;
-  padding: 20px;
-  background: white;
-  border-radius: 6px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
