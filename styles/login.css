@@ -24,13 +24,22 @@
   flex-direction: column;
 }
 
+.logo-container {
+  text-align: center; /* Centers the text horizontally */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers content vertically */
+  align-items: center; /* Ensures items are centered horizontally */
+}
+
 .logo-container img {
   width: 120px; /* Adjust size as needed */
+  margin-bottom: 10px; /* Space between logo and text */
 }
 
 .logo-container h1 {
   color: white;
-  text-align: center;
+  margin: 0; /* Removes any default margin */
 }
 
 .login-form {

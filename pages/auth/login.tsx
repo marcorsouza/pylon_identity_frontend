@@ -1,28 +1,43 @@
 // pages/login.tsx
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import { Password } from "primereact/password";
 import { Checkbox } from "primereact/checkbox";
+import { Toast } from 'primereact/toast';
 
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState<boolean | undefined>(false);
+  const toast = useRef<Toast>(null);
 
+  const showSuccess = () => {
+    if(toast.current)
+      toast.current.show({severity:'success', summary: 'Success', detail:'Message Content', life: 3000});
+  }
+
+  const showError = () => {
+    if(toast.current)
+      toast.current.show({severity:'error', summary: 'Invalid username or password', detail:'Invalid username or password, remaining_attempts: 5', life: 3000});
+  }
+  
   const handleLogin = (e: any) => {
     e.preventDefault();
     console.log("Login details:", { username, password, rememberMe });
+    showSuccess()
+    showError()
     // Adicionar lógica de autenticação
   };
 
   return (
     <div className="outer-container">
+      <Toast ref={toast} />
       <div className="login-page">
         <div className="login-background">
           <div className="logo-container">
             <img src="/images/logo.png" alt="Logo" />
-            <h1>Pylon</h1>
+            <h1>Pylon Identity</h1>
           </div>
         </div>
         <div className="login-form">
