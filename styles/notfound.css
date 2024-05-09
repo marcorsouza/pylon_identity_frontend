@@ -1,33 +1,32 @@
 /* styles/not-found.css */
 .outer-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(to bottom, #231f31 0%, #0a061a 100%);
-  }
-  
-  .not-found-container {
-    text-align: center;
-    color: white; 
-  }
-  
-  .not-found-container h1 {
-    margin-bottom: 20px;
-  }
-  
-  .not-found-container p {
-    margin-bottom: 40px;
-  }
-  
-  /* Ajuste do botão se necessário, mantendo consistência com a página de login */
-  button.p-button {
-    background-color: var(--blue-900, #0d3c61) !important; 
-    border-color: var(--blue-900, #0d3c61) !important;
-  }
-  
-  button.p-button:hover {
-    background-color: #09507a !important;
-    border-color: #09507a !important;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom, #231f31 0%, #0a061a 100%);
+}
+
+.not-found-container {
+  text-align: center;
+  color: white;
+}
+
+.not-found-container h1 {
+  margin-bottom: 20px;
+}
+
+.not-found-container p {
+  margin-bottom: 40px;
+}
+
+/* Ajuste do botão se necessário, mantendo consistência com a página de login */
+.not-found-container button.p-button {
+  background-color: var(--blue-900, #0d3c61) !important;
+  border-color: var(--blue-900, #0d3c61) !important;
+}
+
+.not-found-container button.p-button:hover {
+  background-color: #09507a !important;
+  border-color: #09507a !important;
+}
