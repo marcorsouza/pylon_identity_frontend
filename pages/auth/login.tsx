@@ -84,9 +84,12 @@ export default function Login() {
             </div>
             <Button type="submit" label="Login" icon="pi pi-lock" />
             <div className="form-links">
-              <a href="/register" className="register-link">
-                Register
-              </a>
+              <span className="login-signup flex">
+                Don’t have an account?
+                <a href="/register" className="register-link">
+                Sign-up here
+                </a>
+                </span> 
             </div>
           </form>
         </div>
