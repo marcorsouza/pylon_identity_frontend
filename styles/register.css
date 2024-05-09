@@ -5,9 +5,11 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
-  margin-top: 50px;
-  background: linear-gradient(to bottom, rgb(224, 222, 222) 0%, var(--cyan-50) 100%);
-
+  background: linear-gradient(
+    to bottom,
+    rgb(224, 222, 222) 0%,
+    var(--cyan-50) 100%
+  );
 }
 
 .register-form form {
@@ -18,13 +20,11 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-
 .register-title {
-    font-size: 1.5rem;
-    text-align: center;
-    color: var(--blue-900, #0d3c61);    
+  font-size: 1.5rem;
+  text-align: center;
+  color: var(--blue-900, #0d3c61);
 }
-
 
 .register-form .p-field {
   margin-bottom: 1.5em;
@@ -38,7 +38,7 @@
 }
 
 .register-button {
-    gap: 1rem !important;
+  gap: 1rem !important;
 }
 
 .register-button .btn-register.p-button {

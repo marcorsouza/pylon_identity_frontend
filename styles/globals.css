@@ -168,7 +168,6 @@ body {
   height: 80px; /* Altura explícita pode ajudar se houver problemas de sobreposição */
 }
 
-
 .flex {
   display: flex !important;
 }

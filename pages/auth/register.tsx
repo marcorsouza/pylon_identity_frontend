@@ -31,62 +31,76 @@ export default function Register() {
 
   return (
     <div className="outer-container">
-      <div className="register-form">
-        <Toast ref={toast} />
-        <form onSubmit={handleSubmit} className="p-fluid">
-          <h3 className="register-title">Sign Up</h3>
-          <div className="p-field">
-            <InputText
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Name"
-            />
+      <Toast ref={toast} />
+      <div className="login-page">
+        <div className="form-background">
+          <div className="logo-container">
+            <img src="/images/logo.png" alt="Logo" />
+            <h1>Pylon Identity</h1>
           </div>
-          <div className="p-field">
-            <InputText
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              placeholder="Username"
-            />
-          </div>
-          <div className="p-field">
-            <InputText
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email"              
-            />
-          </div>
-          <div className="p-field">
-            <Password
-              value={password}
-              feedback={false}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Password"
-            />
-          </div>
-          <div className="p-field">
-            <Password
-              value={confirmPassword}              
-              feedback={false}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              placeholder="Confirm Password"
-            />
-          </div>
-          <div className="register-button flex">
-            <Button className="btn-cancel" type="submit" label="Cancel" severity="danger" outlined/>
+        </div>
+        <div className="register-form">
+          <form onSubmit={handleSubmit} className="p-fluid">
+            <h3 className="register-title">Sign Up</h3>
+            <div className="p-field">
+              <InputText
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Name"
+              />
+            </div>
+            <div className="p-field">
+              <InputText
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                placeholder="Username"
+              />
+            </div>
+            <div className="p-field">
+              <InputText
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Email"
+              />
+            </div>
+            <div className="p-field">
+              <Password
+                value={password}
+                feedback={false}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Password"
+              />
+            </div>
+            <div className="p-field">
+              <Password
+                value={confirmPassword}
+                feedback={false}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                placeholder="Confirm Password"
+              />
+            </div>
+            <div className="register-button flex">
+              <Button
+                className="btn-cancel"
+                type="submit"
+                label="Cancel"
+                severity="danger"
+                outlined
+              />
 
-            <Button  className="btn-register" type="submit" label="Submit" />
-          </div>
+              <Button className="btn-register" type="submit" label="Submit" />
+            </div>
 
-          <div className="form-links">
-              <span className="login-signup flex">
+            <div className="form-links">
+              <span className="form-sign flex">
                 Already have an account?
                 <a href="/auth/login" className="register-link">
-                Login
+                  Login
                 </a>
-                </span> 
+              </span>
             </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
   );

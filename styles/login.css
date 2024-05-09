@@ -16,8 +16,8 @@
   height: 60%;
 }
 
-.login-background {
-  background: linear-gradient(to bottom, #342c52  0%, var(--blue-500) 100%);
+.form-background {
+  background: linear-gradient(to bottom, #342c52 0%, var(--blue-500) 100%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,7 +46,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to bottom, rgb(224, 222, 222) 0%, var(--cyan-50) 100%);
+  background: linear-gradient(
+    to bottom,
+    rgb(224, 222, 222) 0%,
+    var(--cyan-50) 100%
+  );
 }
 
 form.p-fluid {
@@ -69,7 +73,7 @@ form.p-fluid {
   border: 2px solid #ccc;
   border-radius: 8px;
   width: 100%; /* Garante que o input use toda a largura disponível */
-  font-size: .975rem !important;
+  font-size: 0.975rem !important;
 }
 
 .p-field input::placeholder,
@@ -88,7 +92,7 @@ form.p-fluid {
   justify-content: space-between;
   width: 100%;
   margin-bottom: 1em;
-  font-size: .975rem !important;
+  font-size: 0.975rem !important;
   color: var(--blue-800) !important;
 }
 
@@ -107,7 +111,7 @@ form.p-fluid {
   color: #007ad9;
   text-decoration: none;
   font-weight: bold;
-  margin-left: .25rem !important;
+  margin-left: 0.25rem !important;
   color: var(--blue-800) !important;
 }
 
@@ -121,8 +125,6 @@ form.p-fluid {
   justify-content: space-evenly;
   margin-top: 2em;
 }
-
-
 
 .register-link,
 .forgot-password-link {
@@ -146,9 +148,7 @@ form.p-fluid {
   border-color: #09507a !important;
 }
 
-
-.login-signup {
-  font-size: .975rem !important;
+.form-sign {
+  font-size: 0.975rem !important;
   color: var(--blue-900) !important;
 }
-

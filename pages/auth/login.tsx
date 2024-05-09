@@ -44,7 +44,7 @@ export default function Login() {
     <div className="outer-container">
       <Toast ref={toast} />
       <div className="login-page">
-        <div className="login-background">
+        <div className="form-background">
           <div className="logo-container">
             <img src="/images/logo.png" alt="Logo" />
             <h1>Pylon Identity</h1>
@@ -52,6 +52,7 @@ export default function Login() {
         </div>
         <div className="login-form">
           <form onSubmit={handleLogin} className="p-fluid">
+            <h3 className="register-title">Sign In</h3>
             <div className="p-field">
               <InputText
                 id="username"
@@ -84,12 +85,12 @@ export default function Login() {
             </div>
             <Button type="submit" label="Login" icon="pi pi-lock" />
             <div className="form-links">
-              <span className="login-signup flex">
+              <span className="form-sign flex">
                 Don’t have an account?
                 <a href="/register" className="register-link">
-                Sign-up here
+                  Sign-up here
                 </a>
-                </span> 
+              </span>
             </div>
           </form>
         </div>
