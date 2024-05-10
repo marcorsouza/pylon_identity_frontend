@@ -7,6 +7,7 @@ import "../styles/globals.css";
 import "../styles/login.css";
 import "../styles/register.css";
 import "../styles/notfound.css";
+import "../styles/crud.css";
 
 import { AppProps } from "next/app";
 import Layout from "../components/Layout/layout";

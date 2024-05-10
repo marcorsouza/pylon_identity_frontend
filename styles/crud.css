@@ -1,0 +1,31 @@
+.crud-outer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: linear-gradient(to bottom, #eaeaeb 0%, #f6f6fe 100%);
+}
+
+.crud-form form {
+  width: 340px;
+  background: rgb(250, 248, 248);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.crud-grid th {
+  color: var(--blue-900) !important;
+}
+
+.grid-actions button:not(first-child) {
+  margin-left: 5px;
+}
+
+.p-datatable .p-datatable-tbody > tr:nth-child(even) {
+  background-color: #f4f4f4; /* Cor para linhas zebradas */
+}
+
+.p-datatable .p-datatable-tbody > tr:hover {
+  background-color: #e9ecef; /* Cor ao passar o mouse */
+  cursor: pointer; /* Indica que a linha é interativa */
+}

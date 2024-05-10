@@ -11,7 +11,13 @@ const menuItems = [
     label: "Admin",
     icon: "pi pi-fw pi-user-edit",
     items: [
-      { label: "User", icon: "pi pi-fw pi-user" },
+      {
+        label: "User",
+        icon: "pi pi-fw pi-user",
+        command: () => {
+          window.location.href = "/admin/users"; // Redirecionamento
+        },
+      },
       { label: "Roles", icon: "pi pi-fw pi-users" },
       { label: "Tasks", icon: "pi pi-fw pi-list" },
       { label: "Applications", icon: "pi pi-fw pi-briefcase" },
