@@ -27,7 +27,7 @@
 }
 
 /* Estilos para o formulário de login */
-.login-form {
+.auth-form {
   background: linear-gradient(
     to bottom,
     rgb(224, 222, 222) 0%,
@@ -42,7 +42,7 @@
   margin: auto; /* Centraliza o formulário horizontalmente */
 }
 
-.login-form .login-title {
+.auth-form .auth-title {
   display: flex;
   justify-content: center;
   color: var(--blue-800);
@@ -51,56 +51,56 @@
   font-size: 1.1rem;
 }
 
-.login-form .login-input {
+.auth-form .auth-input {
   display: flex;
   flex-direction: column;
   padding: 0.5em;
 }
 
-.login-form .login-input label {
+.auth-form .auth-input label {
   color: var(--blue-900);
   margin-bottom: 5px;
 }
 
-.login-form .login-input .p-inputtext {
+.auth-form .auth-input .p-inputtext {
   width: 100%;
   padding: 8px;
   border-radius: 10px;
   border: 1px solid #ccc;
 }
 
-.login-form .login-checkbox {
+.auth-form .auth-checkbox {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0.5em;
 }
 
-.login-form .login-checkbox label {
+.auth-form .auth-checkbox label {
   color: var(--blue-900);
   margin-left: 0.5em;
   flex-direction: row;
 }
 
-.login-form .login-checkbox a {
+.auth-form .auth-checkbox a {
   margin-left: auto;
   color: var(--blue-800) !important;
   flex-direction: row;
   text-decoration: none;
 }
 
-.login-form .login-checkbox a:hover {
+.auth-form .auth-checkbox a:hover {
   color: var(--blue-500) !important;
   text-decoration: none;
 }
 
-.login-form .login-buttons {
+.auth-form .auth-buttons {
   display: flex;
   justify-content: center;
   padding: 0.5em;
 }
 
-.login-form .login-buttons button.p-button {
+.auth-form .auth-buttons button.p-button {
   background-color: var(--blue-900, #0d3c61) !important;
   border-color: var(--blue-900, #0d3c61) !important;
   width: 100%;
@@ -108,18 +108,18 @@
   border-radius: 10px;
 }
 
-.login-form .login-buttons button.p-button:hover {
+.auth-form .auth-buttons button.p-button:hover {
   background-color: #09507a !important;
   border-color: #09507a !important;
 }
 
-.login-links {
+.auth-links {
   display: flex;
   justify-content: center;
   padding: 0.5em;
 }
 
-.login-links a {
+.auth-links a {
   color: var(--blue-800) !important;
   text-decoration: none;
   margin-left: 0.5em;
@@ -135,7 +135,7 @@
     margin-bottom: 20px;
     flex: 0 0 120px;
   }
-  .login-form {
+  .auth-form {
     order: 2;
     flex: 0 0 auto;
     max-height: 400px;
@@ -156,13 +156,13 @@
     margin: auto;
     flex: 0 1 auto; /* Flexibilidade na alocação de espaço */
   }
-  .login-form {
+  .auth-form {
     width: 70%;
   }
 }
 
 @media (min-width: 1024px) {
-  .login-form {
+  .auth-form {
     width: 50%;
   }
 }

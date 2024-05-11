@@ -1,67 +1,74 @@
-// pages/forgot-password.tsx
-import { useRef, useState } from "react";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
+import Link from "next/link";
+import { useState, useRef } from "react";
 import { Toast } from "primereact/toast";
 
-export default function ForgotPassword() {
-  const [email, setEmail] = useState("");
+// pages/login.tsx
+export default function Login() {
+  const [emailAddress, setEmailAddress] = useState("");
+
   const toast = useRef<Toast>(null);
 
   const showSuccess = () => {
     if (toast.current)
       toast.current.show({
         severity: "success",
-        summary: "Reset Link Sent",
-        detail: "Check your email to reset your password",
+        summary: "Success",
+        detail: "Message Content",
         life: 3000,
       });
   };
 
-  const handleForgotPassword = (e: any) => {
+  const showError = () => {
+    if (toast.current)
+      toast.current.show({
+        severity: "error",
+        summary: "Invalid emailAddress or password",
+        detail: "Invalid emailAddress or password, remaining_attempts: 5",
+        life: 3000,
+      });
+  };
+
+  const handleSendResetEmail = (e: any) => {
     e.preventDefault();
-    console.log("Reset password email sent to:", email);
+    console.log("Login details:", { emailAddress });
     showSuccess();
-    // Implementar lógica de envio de email de recuperação aqui
+    showError();
+    // Adicionar lógica de autenticação
   };
 
   return (
-    <div className="outer-container">
+    <div className="auth-container">
       <Toast ref={toast} />
-      <div className="login-page">
-        <div className="form-background">
-          <div className="logo-container">
-            <img src="/images/logo.png" alt="Logo" />
-            <h1>Pylon Identity</h1>
+      <div className="branding-area">
+        <img src="/images/logo.png" alt="Brand Logo" />
+        <h1>Pylon Identity</h1>
+      </div>
+      <div className="auth-form">
+        <form onSubmit={handleSendResetEmail} >
+          <div className="auth-title">
+            {/* Insira o título do formulário aqui, se necessário */}
+            Forgot Password
           </div>
-        </div>
-        <div className="login-form">
-          <form onSubmit={handleForgotPassword} className="p-fluid">
-            <h3 className="register-title">Forgot Password</h3>
-            <div className="p-field">
-              <InputText
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                autoFocus
-                placeholder="Email Address"
-              />
-            </div>
-            <Button
-              type="submit"
-              label="Send Reset Link"
-              icon="pi pi-envelope"
+          <div className="auth-input">
+            <label htmlFor="emailAddress">Email Address</label>
+            <InputText
+              id="emailAddress"
+              value={emailAddress}
+              onChange={(e) => setEmailAddress(e.target.value)}
+              autoFocus
             />
-            <div className="form-links">
-              <span className="form-sign flex">
-                Remember your password?
-                <a href="/auth/login" className="register-link">
-                  Sign-in here
-                </a>
-              </span>
+          </div>
+          <div className="auth-buttons">
+            <Button label="Send Reset Link" icon="pi pi-envelope" />
+          </div>
+
+          <div className="auth-links">
+              Remember your password?
+              <Link href="/auth/login">Sign-in here</Link>
             </div>
-          </form>
-        </div>
+        </form>
       </div>
     </div>
   );

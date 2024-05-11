@@ -49,13 +49,13 @@ export default function Login() {
         <img src="/images/logo.png" alt="Brand Logo" />
         <h1>Pylon Identity</h1>
       </div>
-      <div className="login-form">
+      <div className="auth-form">
         <form onSubmit={handleLogin} >
-          <div className="login-title">
+          <div className="auth-title">
             {/* Insira o título do formulário aqui, se necessário */}
             Login to Your Account
           </div>
-          <div className="login-input">
+          <div className="auth-input">
             <label htmlFor="username">Username</label>
             <InputText
               id="username"
@@ -64,7 +64,7 @@ export default function Login() {
               autoFocus
             />
           </div>
-          <div className="login-input">
+          <div className="auth-input">
             <label htmlFor="password">Password</label>
             <Password
               id="password"
@@ -73,7 +73,7 @@ export default function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <div className="login-checkbox">
+          <div className="auth-checkbox">
             <Checkbox
               id="rememberMe"
               checked={rememberMe ?? false}
@@ -82,11 +82,11 @@ export default function Login() {
             <label htmlFor="rememberMe">Remember me</label>
             <Link href="/auth/forgot-password">Forgot Password</Link>
           </div>
-          <div className="login-buttons">
+          <div className="auth-buttons">
             <Button label="Access my account" icon="pi pi-lock" />
           </div>
 
-          <div className="login-links">
+          <div className="auth-links">
               Don’t have an account? 
               <Link href="/auth/register">Sign-up here</Link>
             </div>
