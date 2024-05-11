@@ -34,7 +34,7 @@ export default function UserProfileMenu() {
   return (
     <>
       <Avatar
-        image="/images/avatar-m-1.png"
+        image="/images/avatar.png"
         size="large"
         shape="circle"
         className="user-avatar"

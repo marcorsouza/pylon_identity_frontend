@@ -3,6 +3,10 @@ import { Button } from "primereact/button";
 import Link from "next/link";
 import { useState, useRef } from "react";
 import { Toast } from "primereact/toast";
+import AuthContainer from "@/Auth/AuthContainer";
+import BrandingArea from "@/Auth/BrandingArea";
+import AuthForm from "@/Auth/AuthForm";
+import AuthInput from "@/Auth/AuthInput";
 
 // pages/login.tsx
 export default function Login() {
@@ -30,7 +34,7 @@ export default function Login() {
       });
   };
 
-  const handleSendResetEmail = (e: any) => {
+  const handleSendResetEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Login details:", { emailAddress });
     showSuccess();
@@ -39,27 +43,21 @@ export default function Login() {
   };
 
   return (
-    <div className="auth-container">
+    <AuthContainer>
       <Toast ref={toast} />
-      <div className="branding-area">
-        <img src="/images/logo.png" alt="Brand Logo" />
-        <h1>Pylon Identity</h1>
-      </div>
-      <div className="auth-form">
-        <form onSubmit={handleSendResetEmail} >
+      <BrandingArea/>
+      <AuthForm onSubmit={handleSendResetEmail}>
           <div className="auth-title">
             {/* Insira o título do formulário aqui, se necessário */}
             Forgot Password
           </div>
-          <div className="auth-input">
-            <label htmlFor="emailAddress">Email Address</label>
-            <InputText
-              id="emailAddress"
-              value={emailAddress}
-              onChange={(e) => setEmailAddress(e.target.value)}
-              autoFocus
-            />
-          </div>
+          <AuthInput
+            fieldname="Email Address"
+            label="E-mail"
+            value={emailAddress}
+            onChange={setEmailAddress}
+            autoFocus={true}
+          />
           <div className="auth-buttons">
             <Button label="Send Reset Link" icon="pi pi-envelope" />
           </div>
@@ -68,8 +66,7 @@ export default function Login() {
               Remember your password?
               <Link href="/auth/login">Sign-in here</Link>
             </div>
-        </form>
-      </div>
-    </div>
+      </AuthForm>
+    </AuthContainer>
   );
 }

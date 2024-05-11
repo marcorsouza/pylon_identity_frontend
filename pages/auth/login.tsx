@@ -5,6 +5,11 @@ import { Checkbox } from "primereact/checkbox";
 import Link from "next/link";
 import { useState, useRef } from "react";
 import { Toast } from "primereact/toast";
+import AuthContainer from "@/Auth/AuthContainer";
+import BrandingArea from "@/Auth/BrandingArea";
+import AuthForm from "@/Auth/AuthForm";
+import AuthInput from "@/Auth/AuthInput";
+import AuthPassword from "@/Auth/AuthPassword";
 
 // pages/login.tsx
 export default function Login() {
@@ -34,7 +39,7 @@ export default function Login() {
       });
   };
 
-  const handleLogin = (e: any) => {
+  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Login details:", { username, password, rememberMe });
     showSuccess();
@@ -43,36 +48,28 @@ export default function Login() {
   };
 
   return (
-    <div className="auth-container">
+    <AuthContainer>
       <Toast ref={toast} />
-      <div className="branding-area">
-        <img src="/images/logo.png" alt="Brand Logo" />
-        <h1>Pylon Identity</h1>
-      </div>
-      <div className="auth-form">
-        <form onSubmit={handleLogin} >
+      <BrandingArea/>
+      <AuthForm onSubmit={handleLogin}>
           <div className="auth-title">
             {/* Insira o título do formulário aqui, se necessário */}
             Login to Your Account
           </div>
-          <div className="auth-input">
-            <label htmlFor="username">Username</label>
-            <InputText
-              id="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              autoFocus
-            />
-          </div>
-          <div className="auth-input">
-            <label htmlFor="password">Password</label>
-            <Password
-              id="password"
-              feedback={false}
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
+          <AuthInput
+            fieldname="username"
+            label="Username"
+            value={username}
+            onChange={setUsername}
+            autoFocus={true}
+          />
+          <AuthPassword
+            fieldname="password"
+            label="Password"
+            value={password}
+            onChange={setPassword}
+            feedback={true}
+          />
           <div className="auth-checkbox">
             <Checkbox
               id="rememberMe"
@@ -90,8 +87,7 @@ export default function Login() {
               Don’t have an account? 
               <Link href="/auth/register">Sign-up here</Link>
             </div>
-        </form>
-      </div>
-    </div>
+      </AuthForm>
+    </AuthContainer>
   );
 }

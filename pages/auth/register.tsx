@@ -5,6 +5,11 @@ import { Password } from "primereact/password";
 import { Button } from "primereact/button";
 import { Toast } from "primereact/toast";
 import Link from "next/link";
+import AuthContainer from "@/Auth/AuthContainer";
+import BrandingArea from "@/Auth/BrandingArea";
+import AuthForm from "@/Auth/AuthForm";
+import AuthInput from "@/Auth/AuthInput";
+import AuthPassword from "@/Auth/AuthPassword";
 
 export default function Register() {
   const [name, setName] = useState("");
@@ -14,7 +19,7 @@ export default function Register() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const toast = React.useRef<Toast>(null);
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (password !== confirmPassword) {
       if (toast.current)
@@ -31,63 +36,47 @@ export default function Register() {
   };
 
   return (
-    <div className="auth-container">
+    <AuthContainer>
       <Toast ref={toast} />
-      <div className="branding-area">
-        <img src="/images/logo.png" alt="Brand Logo" />
-        <h1>Pylon Identity</h1>
-      </div>
-      <div className="auth-form">
-        <form onSubmit={handleSubmit} >
+      <BrandingArea/>
+      <AuthForm onSubmit={handleSubmit}>
           <div className="auth-title">
             {/* Insira o título do formulário aqui, se necessário */}
             Sign Up
           </div>
-          <div className="auth-input">
-            <label htmlFor="name">Name</label>
-            <InputText
-              id="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              autoFocus
-            />
-          </div>
-          <div className="auth-input">
-            <label htmlFor="email">E-mail</label>
-            <InputText
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              autoFocus
-            />
-          </div>
-          <div className="auth-input">
-            <label htmlFor="username">Username</label>
-            <InputText
-              id="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              autoFocus
-            />
-          </div>
-          <div className="auth-input">
-            <label htmlFor="password">Password</label>
-            <Password
-              id="password"
-              feedback={false}
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <div className="auth-input">
-            <label htmlFor="password">Confirm Password</label>
-            <Password
-              id="confirmPassword"
-              feedback={false}
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
-          </div>
+          <AuthInput
+            fieldname="name"
+            label="Name"
+            value={name}
+            onChange={setName}
+            autoFocus={true}
+          />
+          <AuthInput
+            fieldname="email"
+            label="E-mail"
+            value={email}
+            onChange={setEmail}
+          />
+          <AuthInput
+            fieldname="username"
+            label="Username"
+            value={username}
+            onChange={setUsername}
+          />
+          <AuthPassword
+            fieldname="password"
+            label="Password"
+            value={password}
+            onChange={setPassword}
+            feedback={true}
+          />
+          <AuthPassword
+            fieldname="confirmPassword"
+            label="ConfirmPassword"
+            value={confirmPassword}
+            onChange={setConfirmPassword}
+            feedback={true}
+          />
           <div className="auth-buttons flex">
             <Button className="btn-cancel" type="submit" label="Cancel" severity="danger" outlined/>
             <Button className="btn-primary" label="Access my account" icon="pi pi-lock" />
@@ -97,8 +86,7 @@ export default function Register() {
               Already have an account?
               <Link href="/auth/login">Sign-in here</Link>
             </div>
-        </form>
-      </div>
-    </div>
+      </AuthForm>
+    </AuthContainer>
   );
 }

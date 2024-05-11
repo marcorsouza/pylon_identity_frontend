@@ -5,7 +5,6 @@ import "primeicons/primeicons.css"; // Ícones
 
 import "../styles/globals.css";
 import "../styles/login.css";
-import "../styles/register.css";
 import "../styles/notfound.css";
 import "../styles/crud.css";
 
