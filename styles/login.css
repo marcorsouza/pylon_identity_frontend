@@ -103,11 +103,26 @@
 .login-form .login-buttons button.p-button {
   background-color: var(--blue-900, #0d3c61) !important;
   border-color: var(--blue-900, #0d3c61) !important;
+  width: 100%;
+  padding: 8px;
+  border-radius: 10px;
 }
 
 .login-form .login-buttons button.p-button:hover {
   background-color: #09507a !important;
   border-color: #09507a !important;
+}
+
+.login-links {
+  display: flex;
+  justify-content: center;
+  padding: 0.5em;
+}
+
+.login-links a {
+  color: var(--blue-800) !important;
+  text-decoration: none;
+  margin-left: 0.5em;
 }
 
 /* Media Queries para responsividade */

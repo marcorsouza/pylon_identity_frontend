@@ -85,6 +85,11 @@ export default function Login() {
           <div className="login-buttons">
             <Button label="Access my account" icon="pi pi-lock" />
           </div>
+
+          <div className="login-links">
+              Don’t have an account? 
+              <Link href="/auth/register">Sign-up here</Link>
+            </div>
         </form>
       </div>
     </div>
