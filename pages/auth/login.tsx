@@ -1,15 +1,17 @@
-// pages/login.tsx
-import { useRef, useState } from "react";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import { Password } from "primereact/password";
 import { Checkbox } from "primereact/checkbox";
+import Link from "next/link";
+import { useState, useRef } from "react";
 import { Toast } from "primereact/toast";
 
+// pages/login.tsx
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState<boolean | undefined>(false);
+
   const toast = useRef<Toast>(null);
 
   const showSuccess = () => {
@@ -41,59 +43,49 @@ export default function Login() {
   };
 
   return (
-    <div className="outer-container">
+    <div className="auth-container">
       <Toast ref={toast} />
-      <div className="login-page">
-        <div className="form-background">
-          <div className="logo-container">
-            <img src="/images/logo.png" alt="Logo" />
-            <h1>Pylon Identity</h1>
+      <div className="branding-area">
+        <img src="/images/logo.png" alt="Brand Logo" />
+        <h1>Pylon Identity</h1>
+      </div>
+      <div className="login-form">
+        <form onSubmit={handleLogin} >
+          <div className="login-title">
+            {/* Insira o título do formulário aqui, se necessário */}
+            Login to Your Account
           </div>
-        </div>
-        <div className="login-form">
-          <form onSubmit={handleLogin} className="p-fluid">
-            <h3 className="register-title">Sign In</h3>
-            <div className="p-field">
-              <InputText
-                id="username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                autoFocus
-                placeholder="Username"
-              />
-            </div>
-            <div className="p-field">
-              <Password
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                feedback={false}
-                placeholder="Password"
-                toggleMask
-              />
-            </div>
-            <div className="p-field-checkbox">
-              <Checkbox
-                inputId="rememberMe"
-                checked={rememberMe ?? false}
-                onChange={(e) => setRememberMe(e.checked)}
-              />
-              <label htmlFor="rememberMe">Remember me</label>
-              <a href="/forgot-password" className="forgot-password-link">
-                Forgot Password?
-              </a>
-            </div>
-            <Button type="submit" label="Login" icon="pi pi-lock" />
-            <div className="form-links">
-              <span className="form-sign flex">
-                Don’t have an account?
-                <a href="/register" className="register-link">
-                  Sign-up here
-                </a>
-              </span>
-            </div>
-          </form>
-        </div>
+          <div className="login-input">
+            <label htmlFor="username">Username</label>
+            <InputText
+              id="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              autoFocus
+            />
+          </div>
+          <div className="login-input">
+            <label htmlFor="password">Password</label>
+            <Password
+              id="password"
+              feedback={false}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div className="login-checkbox">
+            <Checkbox
+              id="rememberMe"
+              checked={rememberMe ?? false}
+              onChange={(e) => setRememberMe(e.checked)}
+            />
+            <label htmlFor="rememberMe">Remember me</label>
+            <Link href="/auth/forgot-password">Forgot Password</Link>
+          </div>
+          <div className="login-buttons">
+            <Button label="Access my account" icon="pi pi-lock" />
+          </div>
+        </form>
       </div>
     </div>
   );

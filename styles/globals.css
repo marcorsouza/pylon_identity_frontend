@@ -2,6 +2,7 @@
 body {
   margin: 0;
   overflow-x: hidden; /* Evita scroll horizontal se a largura total exceder 100vw */
+  font-family: var(--font-family);
 }
 
 .layout {

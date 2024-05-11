@@ -1,154 +1,153 @@
-/* styles/login.css */
-
-.outer-container {
+/* Estilos Básicos e Configurações Globais */
+.auth-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   background: linear-gradient(to bottom, #231f31 0%, #0a061a 100%);
+  flex-direction: column; /* Padrão para dispositivos móveis */
 }
 
-.login-page {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: 70%; /* Adjust based on your preference */
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25); /* Optional shadow for emphasis */
-  height: 60%;
-}
-
-.form-background {
-  background: linear-gradient(to bottom, #342c52 0%, var(--blue-500) 100%);
+/* Estilos específicos para a área de branding */
+.branding-area {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  flex-direction: column; /* Organiza os filhos verticalmente */
+  align-items: center; /* Centraliza os filhos horizontalmente */
+  text-align: center; /* Garante que o texto esteja centralizado */
+  color: var(--gray-50);
+  margin: auto; /* Centraliza verticalmente */
 }
 
-.logo-container {
-  text-align: center; /* Centers the text horizontally */
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Centers content vertically */
-  align-items: center; /* Ensures items are centered horizontally */
+.branding-area img {
+  width: 120px;
 }
 
-.logo-container img {
-  width: 120px; /* Adjust size as needed */
-  margin-bottom: 10px; /* Space between logo and text */
+.branding-area h1 {
+  margin: 0;
 }
 
-.logo-container h1 {
-  color: white;
-  margin: 0; /* Removes any default margin */
-}
-
+/* Estilos para o formulário de login */
 .login-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background: linear-gradient(
     to bottom,
     rgb(224, 222, 222) 0%,
-    var(--cyan-50) 100%
+    var(--gray-50) 100%
   );
-}
-
-form.p-fluid {
-  width: 360px;
   padding: 20px;
-  background: white;
-  border-radius: 6px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 90%; /* Largura relativa menor para dispositivos pequenos */
+  max-width: 500px;
+  min-width: 300px;
+  margin: auto; /* Centraliza o formulário horizontalmente */
 }
 
-.p-field {
-  margin-bottom: 1.5em;
+.login-form .login-title {
+  display: flex;
+  justify-content: center;
+  color: var(--blue-800);
+  padding: 0.5em;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.login-form .login-input {
   display: flex;
   flex-direction: column;
+  padding: 0.5em;
 }
 
-.p-field input,
-.p-field .p-password input {
-  padding: 0.8em 2.5em;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  width: 100%; /* Garante que o input use toda a largura disponível */
-  font-size: 0.975rem !important;
+.login-form .login-input label {
+  color: var(--blue-900);
+  margin-bottom: 5px;
 }
 
-.p-field input::placeholder,
-.p-field .p-password input::placeholder {
-  color: #888; /* Define a cor dos placeholders */
+.login-form .login-input .p-inputtext {
+  width: 100%;
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
 }
 
-.p-field input:focus,
-.p-field .p-password input:focus {
-  border-color: #125386; /* Cor do tema para o foco */
-}
-
-.p-field-checkbox {
+.login-form .login-checkbox {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  margin-bottom: 1em;
-  font-size: 0.975rem !important;
-  color: var(--blue-800) !important;
+  padding: 0.5em;
 }
 
-.p-field-checkbox label {
+.login-form .login-checkbox label {
+  color: var(--blue-900);
   margin-left: 0.5em;
+  flex-direction: row;
 }
 
-.forgot-password-link {
-  margin-left: auto; /* Aligns the link to the right */
+.login-form .login-checkbox a {
+  margin-left: auto;
   color: var(--blue-800) !important;
-}
-
-.register-link {
-  display: block; /* Makes the link full width */
-  text-align: center; /* Centers the link text */
-  color: #007ad9;
+  flex-direction: row;
   text-decoration: none;
-  font-weight: bold;
-  margin-left: 0.25rem !important;
-  color: var(--blue-800) !important;
 }
 
-.register-link:hover,
-.forgot-password-link:hover {
-  text-decoration: underline;
+.login-form .login-checkbox a:hover {
+  color: var(--blue-500) !important;
+  text-decoration: none;
 }
 
-.form-links {
+.login-form .login-buttons {
   display: flex;
-  justify-content: space-evenly;
-  margin-top: 2em;
+  justify-content: center;
+  padding: 0.5em;
 }
 
-.register-link,
-.forgot-password-link {
-  color: #007ad9;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.register-link:hover,
-.forgot-password-link:hover {
-  text-decoration: underline;
-}
-
-.login-form button.p-button {
+.login-form .login-buttons button.p-button {
   background-color: var(--blue-900, #0d3c61) !important;
   border-color: var(--blue-900, #0d3c61) !important;
 }
 
-.login-form button:hover {
+.login-form .login-buttons button.p-button:hover {
   background-color: #09507a !important;
   border-color: #09507a !important;
 }
 
-.form-sign {
-  font-size: 0.975rem !important;
-  color: var(--blue-900) !important;
+/* Media Queries para responsividade */
+@media (max-width: 767px) {
+  .auth-container {
+    align-items: stretch;
+  }
+  .branding-area {
+    order: 1;
+    margin-bottom: 20px;
+    flex: 0 0 120px;
+  }
+  .login-form {
+    order: 2;
+    flex: 0 0 auto;
+    max-height: 400px;
+    max-width: none; /* Remove restrição de max-width */
+  }
+
+  .p-toast {
+    right: 0px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .auth-container {
+    flex-direction: row; /* Linha em tablets e desktops */
+    align-items: center; /* Centraliza verticalmente */
+  }
+  .branding-area {
+    margin: auto;
+    flex: 0 1 auto; /* Flexibilidade na alocação de espaço */
+  }
+  .login-form {
+    width: 70%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .login-form {
+    width: 50%;
+  }
 }

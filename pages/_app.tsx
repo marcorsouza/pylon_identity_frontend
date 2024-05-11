@@ -16,7 +16,9 @@ import NotFoundPage from "../components/NotFoundPage";
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   const isLoginPage =
-    router.pathname === "/auth/login" || router.pathname === "/auth/register"; // Verifica se a rota é '/login'
+    router.pathname === "/auth/login" ||
+    router.pathname === "/auth/register" ||
+    router.pathname === "/auth/forgot-password"; // Verifica se a rota é '/login'
   const isNotFound = pageProps.statusCode === 404; // Verifica se a rota é '/404'
 
   // Escolha o Layout com base na rota

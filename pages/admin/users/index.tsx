@@ -68,7 +68,7 @@ export default function ListUsers() {
         value={users}
         paginator
         paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
-        rows={10}
+        rows={1}
       >
         <Column field="id" header="ID" />
         <Column field="name" header="Name" />
