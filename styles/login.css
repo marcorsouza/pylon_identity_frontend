@@ -3,9 +3,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh; /* Usa min-height ao invés de height */
   background: linear-gradient(to bottom, #231f31 0%, #0a061a 100%);
   flex-direction: column; /* Padrão para dispositivos móveis */
+  overflow: auto; /* Adiciona barras de rolagem se o conteúdo exceder a altura da viewport */
+  padding: 0px 20px;
 }
 
 /* Estilos específicos para a área de branding */
@@ -28,18 +30,20 @@
 
 /* Estilos para o formulário de login */
 .auth-form {
+  flex: 1 1 auto; /* Permite que o form cresça e encolha conforme necessário */
+  width: 90%; /* Mantém a largura relativa */
+  max-width: 500px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin: auto; /* Centraliza o formulário horizontalmente */
+  overflow: hidden; /* Evita que o conteúdo exceda os limites do formulário */
+  
   background: linear-gradient(
     to bottom,
     rgb(224, 222, 222) 0%,
     var(--gray-50) 100%
   );
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  width: 90%; /* Largura relativa menor para dispositivos pequenos */
-  max-width: 500px;
-  min-width: 300px;
-  margin: auto; /* Centraliza o formulário horizontalmente */
 }
 
 .auth-form .auth-title {
@@ -97,18 +101,24 @@
 .auth-form .auth-buttons {
   display: flex;
   justify-content: center;
-  padding: 0.5em;
+  padding: 1em;
 }
 
 .auth-form .auth-buttons button.p-button {
-  background-color: var(--blue-900, #0d3c61) !important;
-  border-color: var(--blue-900, #0d3c61) !important;
   width: 100%;
   padding: 8px;
   border-radius: 10px;
 }
+.auth-form .auth-buttons button.p-button:not(:first-child) {
+  margin-left: 0.5em;
+}
 
-.auth-form .auth-buttons button.p-button:hover {
+.auth-form .auth-buttons .btn-primary.p-button {
+  background-color: var(--blue-900, #0d3c61) !important;
+  border-color: var(--blue-900, #0d3c61) !important;
+}
+
+.auth-form .auth-buttons .btn-primary.p-button:hover {
   background-color: #09507a !important;
   border-color: #09507a !important;
 }
@@ -129,6 +139,8 @@
 @media (max-width: 767px) {
   .auth-container {
     align-items: stretch;
+    overflow: auto; /* Adiciona barras de rolagem se o conteúdo exceder a altura da viewport */
+
   }
   .branding-area {
     order: 1;
@@ -138,7 +150,7 @@
   .auth-form {
     order: 2;
     flex: 0 0 auto;
-    max-height: 400px;
+    min-height: 400px;
     max-width: none; /* Remove restrição de max-width */
   }
 
@@ -165,4 +177,9 @@
   .auth-form {
     width: 50%;
   }
+}
+
+
+.flex {
+  display: flex !important;
 }

@@ -4,6 +4,7 @@ import { InputText } from "primereact/inputtext";
 import { Password } from "primereact/password";
 import { Button } from "primereact/button";
 import { Toast } from "primereact/toast";
+import Link from "next/link";
 
 export default function Register() {
   const [name, setName] = useState("");
@@ -30,77 +31,73 @@ export default function Register() {
   };
 
   return (
-    <div className="outer-container">
+    <div className="auth-container">
       <Toast ref={toast} />
-      <div className="login-page">
-        <div className="form-background">
-          <div className="logo-container">
-            <img src="/images/logo.png" alt="Logo" />
-            <h1>Pylon Identity</h1>
+      <div className="branding-area">
+        <img src="/images/logo.png" alt="Brand Logo" />
+        <h1>Pylon Identity</h1>
+      </div>
+      <div className="auth-form">
+        <form onSubmit={handleSubmit} >
+          <div className="auth-title">
+            {/* Insira o título do formulário aqui, se necessário */}
+            Sign Up
           </div>
-        </div>
-        <div className="register-form">
-          <form onSubmit={handleSubmit} className="p-fluid">
-            <h3 className="register-title">Sign Up</h3>
-            <div className="p-field">
-              <InputText
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Name"
-              />
-            </div>
-            <div className="p-field">
-              <InputText
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                placeholder="Username"
-              />
-            </div>
-            <div className="p-field">
-              <InputText
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Email"
-              />
-            </div>
-            <div className="p-field">
-              <Password
-                value={password}
-                feedback={false}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Password"
-              />
-            </div>
-            <div className="p-field">
-              <Password
-                value={confirmPassword}
-                feedback={false}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                placeholder="Confirm Password"
-              />
-            </div>
-            <div className="register-button flex">
-              <Button
-                className="btn-cancel"
-                type="submit"
-                label="Cancel"
-                severity="danger"
-                outlined
-              />
+          <div className="auth-input">
+            <label htmlFor="name">Name</label>
+            <InputText
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              autoFocus
+            />
+          </div>
+          <div className="auth-input">
+            <label htmlFor="email">E-mail</label>
+            <InputText
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              autoFocus
+            />
+          </div>
+          <div className="auth-input">
+            <label htmlFor="username">Username</label>
+            <InputText
+              id="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              autoFocus
+            />
+          </div>
+          <div className="auth-input">
+            <label htmlFor="password">Password</label>
+            <Password
+              id="password"
+              feedback={false}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div className="auth-input">
+            <label htmlFor="password">Confirm Password</label>
+            <Password
+              id="confirmPassword"
+              feedback={false}
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+          </div>
+          <div className="auth-buttons flex">
+            <Button className="btn-cancel" type="submit" label="Cancel" severity="danger" outlined/>
+            <Button className="btn-primary" label="Access my account" icon="pi pi-lock" />
+          </div>
 
-              <Button className="btn-register" type="submit" label="Submit" />
+          <div className="auth-links">
+              Already have an account?
+              <Link href="/auth/login">Sign-in here</Link>
             </div>
-
-            <div className="form-links">
-              <span className="form-sign flex">
-                Already have an account?
-                <a href="/auth/login" className="register-link">
-                  Login
-                </a>
-              </span>
-            </div>
-          </form>
-        </div>
+        </form>
       </div>
     </div>
   );
