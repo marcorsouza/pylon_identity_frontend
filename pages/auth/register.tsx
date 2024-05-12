@@ -38,54 +38,64 @@ export default function Register() {
   return (
     <AuthContainer>
       <Toast ref={toast} />
-      <BrandingArea/>
+      <BrandingArea />
       <AuthForm onSubmit={handleSubmit}>
-          <div className="auth-title">
-            {/* Insira o título do formulário aqui, se necessário */}
-            Sign Up
-          </div>
-          <AuthInput
-            fieldname="name"
-            label="Name"
-            value={name}
-            onChange={setName}
-            autoFocus={true}
+        <div className="auth-title">
+          {/* Insira o título do formulário aqui, se necessário */}
+          Sign Up
+        </div>
+        <AuthInput
+          fieldname="name"
+          label="Name"
+          value={name}
+          onChange={setName}
+          autoFocus={true}
+        />
+        <AuthInput
+          fieldname="email"
+          label="E-mail"
+          value={email}
+          onChange={setEmail}
+        />
+        <AuthInput
+          fieldname="username"
+          label="Username"
+          value={username}
+          onChange={setUsername}
+        />
+        <AuthPassword
+          fieldname="password"
+          label="Password"
+          value={password}
+          onChange={setPassword}
+          feedback={true}
+        />
+        <AuthPassword
+          fieldname="confirmPassword"
+          label="ConfirmPassword"
+          value={confirmPassword}
+          onChange={setConfirmPassword}
+          feedback={true}
+        />
+        <div className="auth-buttons flex">
+          <Button
+            className="btn-cancel"
+            type="submit"
+            label="Cancel"
+            severity="danger"
+            outlined
           />
-          <AuthInput
-            fieldname="email"
-            label="E-mail"
-            value={email}
-            onChange={setEmail}
+          <Button
+            className="btn-primary"
+            label="Access my account"
+            icon="pi pi-lock"
           />
-          <AuthInput
-            fieldname="username"
-            label="Username"
-            value={username}
-            onChange={setUsername}
-          />
-          <AuthPassword
-            fieldname="password"
-            label="Password"
-            value={password}
-            onChange={setPassword}
-            feedback={true}
-          />
-          <AuthPassword
-            fieldname="confirmPassword"
-            label="ConfirmPassword"
-            value={confirmPassword}
-            onChange={setConfirmPassword}
-            feedback={true}
-          />
-          <div className="auth-buttons flex">
-            <Button className="btn-cancel" type="submit" label="Cancel" severity="danger" outlined/>
-            <Button className="btn-primary" label="Access my account" icon="pi pi-lock" />
-          </div>
+        </div>
 
-          <div className="auth-links">
-              Already have an account?
-              <Link href="/auth/login">Sign-in here</Link>
-            </div>
+        <div className="auth-links">
+          Already have an account?
+          <Link href="/auth/login">Sign-in here</Link>
+        </div>
       </AuthForm>
     </AuthContainer>
   );

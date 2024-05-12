@@ -1,8 +1,14 @@
 // components/auth/AuthInput.tsx
-import React from 'react';
-import { InputText } from 'primereact/inputtext';
+import React from "react";
+import { InputText } from "primereact/inputtext";
 
-const AuthInput: React.FC<AuthInputProps> = ({ fieldname, label, value, onChange, autoFocus = false }) => {
+const AuthInput: React.FC<AuthInputProps> = ({
+  fieldname,
+  label,
+  value,
+  onChange,
+  autoFocus = false,
+}) => {
   return (
     <div className="auth-input">
       <label htmlFor={fieldname}>{label}</label>

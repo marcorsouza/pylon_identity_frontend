@@ -45,27 +45,27 @@ export default function Login() {
   return (
     <AuthContainer>
       <Toast ref={toast} />
-      <BrandingArea/>
+      <BrandingArea />
       <AuthForm onSubmit={handleSendResetEmail}>
-          <div className="auth-title">
-            {/* Insira o título do formulário aqui, se necessário */}
-            Forgot Password
-          </div>
-          <AuthInput
-            fieldname="Email Address"
-            label="E-mail"
-            value={emailAddress}
-            onChange={setEmailAddress}
-            autoFocus={true}
-          />
-          <div className="auth-buttons">
-            <Button label="Send Reset Link" icon="pi pi-envelope" />
-          </div>
+        <div className="auth-title">
+          {/* Insira o título do formulário aqui, se necessário */}
+          Forgot Password
+        </div>
+        <AuthInput
+          fieldname="Email Address"
+          label="E-mail"
+          value={emailAddress}
+          onChange={setEmailAddress}
+          autoFocus={true}
+        />
+        <div className="auth-buttons">
+          <Button label="Send Reset Link" icon="pi pi-envelope" />
+        </div>
 
-          <div className="auth-links">
-              Remember your password?
-              <Link href="/auth/login">Sign-in here</Link>
-            </div>
+        <div className="auth-links">
+          Remember your password?
+          <Link href="/auth/login">Sign-in here</Link>
+        </div>
       </AuthForm>
     </AuthContainer>
   );

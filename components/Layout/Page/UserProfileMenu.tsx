@@ -1,3 +1,5 @@
+import { signOut } from "next-auth/react";
+
 import React, { useRef } from "react";
 import { Menu } from "primereact/menu";
 import { Avatar } from "primereact/avatar";
@@ -18,7 +20,7 @@ export default function UserProfileMenu() {
     {
       label: "Logout",
       icon: "pi pi-sign-out",
-      command: () => console.log("Logging out"),
+      command: () => signOut({ callbackUrl: "/" }),
     },
   ];
 

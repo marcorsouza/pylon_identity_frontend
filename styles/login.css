@@ -38,7 +38,7 @@
   border-radius: 8px;
   margin: auto; /* Centraliza o formulário horizontalmente */
   overflow: hidden; /* Evita que o conteúdo exceda os limites do formulário */
-  
+
   background: linear-gradient(
     to bottom,
     rgb(224, 222, 222) 0%,
@@ -140,7 +140,6 @@
   .auth-container {
     align-items: stretch;
     overflow: auto; /* Adiciona barras de rolagem se o conteúdo exceder a altura da viewport */
-
   }
   .branding-area {
     order: 1;
@@ -178,7 +177,6 @@
     width: 50%;
   }
 }
-
 
 .flex {
   display: flex !important;
