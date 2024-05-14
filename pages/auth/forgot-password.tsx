@@ -3,10 +3,10 @@ import { Button } from "primereact/button";
 import Link from "next/link";
 import { useState, useRef } from "react";
 import { Toast } from "primereact/toast";
-import AuthContainer from "@/Auth/AuthContainer";
-import BrandingArea from "@/Auth/BrandingArea";
-import AuthForm from "@/Auth/AuthForm";
-import AuthInput from "@/Auth/AuthInput";
+import AuthContainer from "@/authComponent/AuthContainer";
+import BrandingArea from "@/authComponent/BrandingArea";
+import AuthForm from "@/authComponent/AuthForm";
+import AuthInput from "@/authComponent/AuthInput";
 
 // pages/login.tsx
 export default function Login() {

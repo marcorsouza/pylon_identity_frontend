@@ -1,22 +1,30 @@
+import { useEffect } from "react";
+import { useSession } from "next-auth/react";
+
 import { Button } from "primereact/button";
 import { Checkbox } from "primereact/checkbox";
 import Link from "next/link";
 import { useState, useRef } from "react";
 import { Toast } from "primereact/toast";
-import AuthContainer from "@/Auth/AuthContainer";
-import BrandingArea from "@/Auth/BrandingArea";
-import AuthForm from "@/Auth/AuthForm";
-import AuthInput from "@/Auth/AuthInput";
-import AuthPassword from "@/Auth/AuthPassword";
-import { signIn } from "next-auth/react";
+import AuthContainer from "@/authComponent/AuthContainer";
+import BrandingArea from "@/authComponent/BrandingArea";
+import AuthForm from "@/authComponent/AuthForm";
+import AuthInput from "@/authComponent/AuthInput";
+import AuthPassword from "@/authComponent/AuthPassword";
 import { useRouter } from "next/router";
+import { useAuthStore } from "@/authStore";
 
 // pages/login.tsx
 export default function Login() {
+  const { data: session } = useSession();
+
+  const { login, isAuthenticated, message, setUser, setMessage } =
+    useAuthStore();
   const router = useRouter(); // Adiciona o hook useRouter
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState<boolean | undefined>(false);
+  const lastMessageRef = useRef<string>("");
 
   const toast = useRef<Toast>(null);
 
@@ -40,21 +48,27 @@ export default function Login() {
       });
   };
 
+  useEffect(() => {
+    if (isAuthenticated) {
+      setUser(session?.user);
+      showSuccess(message);
+      router.push("/");
+    } else if (message && message !== lastMessageRef.current) {
+      setUser(null);
+      showError(message);
+    }
+
+    // Limpar a mensagem após exibição para evitar repetição
+    if (message && message !== lastMessageRef.current) {
+      lastMessageRef.current = message; // Atualiza a referência da última mensagem
+      setTimeout(() => setMessage(""), 500); // Limpa a mensagem após um breve delay para evitar loop
+    }
+  }, [isAuthenticated, message, router, setMessage, setUser]);
+
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const result = await signIn("credentials", {
-      redirect: false,
-      username,
-      password,
-    });
-
-    if (result?.ok) {
-      showSuccess();
-      router.push("/");
-    } else {
-      showError(result?.error || "Login failed");
-    }
+    await login(username, password);
   };
 
   return (

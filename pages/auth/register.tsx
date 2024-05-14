@@ -5,11 +5,11 @@ import { Password } from "primereact/password";
 import { Button } from "primereact/button";
 import { Toast } from "primereact/toast";
 import Link from "next/link";
-import AuthContainer from "@/Auth/AuthContainer";
-import BrandingArea from "@/Auth/BrandingArea";
-import AuthForm from "@/Auth/AuthForm";
-import AuthInput from "@/Auth/AuthInput";
-import AuthPassword from "@/Auth/AuthPassword";
+import AuthContainer from "@/authComponent/AuthContainer";
+import BrandingArea from "@/authComponent/BrandingArea";
+import AuthForm from "@/authComponent/AuthForm";
+import AuthInput from "@/authComponent/AuthInput";
+import AuthPassword from "@/authComponent/AuthPassword";
 
 export default function Register() {
   const [name, setName] = useState("");

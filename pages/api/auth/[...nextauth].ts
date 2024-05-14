@@ -1,6 +1,8 @@
+//api/auth/[...nextauth].ts
+
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import LoginService from "../../../services/auth_service";
+import LoginService from "../../../services/authService";
 import { AuthData, AuthSession } from "../../../types/AuthData";
 export default NextAuth({
   jwt: {
@@ -18,16 +20,12 @@ export default NextAuth({
           return null;
         }
 
-        try {
-          const service = new LoginService();
-          const result = await service.login(credentials);
-          if (result.status === 200) {
-            return result.data; // Login bem-sucedido
-          } else {
-            throw new Error(result.data.detail || "Login failed");
-          }
-        } catch (error) {
-          return null;
+        const service = new LoginService();
+        const result = await service.login(credentials);
+        if (result.status === 200) {
+          return result.data; // Login bem-sucedido
+        } else {
+          throw new Error(result.data.detail || "Login failed");
         }
       },
     }),

@@ -1,9 +1,9 @@
 // components/Layout.tsx
 import { useSession, signIn } from "next-auth/react";
-import Header from "./Page/Header";
-import Sidebar from "./Page/Sidebar";
-import Main from "./Page/Main";
-import Footer from "./Page/Footer";
+import Header from "./Header";
+import Sidebar from "./Sidebar";
+import Main from "./Main";
+import Footer from "./Footer";
 
 export default function RootLayout({
   children,

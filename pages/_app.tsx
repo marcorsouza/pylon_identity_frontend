@@ -9,8 +9,8 @@ import "../styles/notfound.css";
 import "../styles/crud.css";
 
 import { AppProps } from "next/app";
-import Layout from "../components/Layout/layout";
-import LoginLayout from "../components/Layout/LoginLayout";
+import Layout from "../components/layout/layout";
+import LoginLayout from "../components/layout/LoginLayout";
 import NotFoundPage from "../components/NotFoundPage";
 import AuthProvider from "@/auth-provider";
 

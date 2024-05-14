@@ -26,7 +26,9 @@ export default function Header() {
 
   function toggleSidebar() {
     // Toggle sidebar logic here
-    console.log("Toggle sidebar");
+    const sidebar = document.querySelector(".sidebar"); // Selecione o elemento da sidebar pelo seletor de classe
+    sidebar?.classList.toggle("open"); // Alterna a classe 'open'
+    console.log("Toggle sidebar", sidebar);
   }
 
   return (

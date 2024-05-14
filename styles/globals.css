@@ -172,3 +172,155 @@ body {
 .flex {
   display: flex !important;
 }
+
+@media (max-width: 1024px) {
+  .layout {
+    grid-template-areas:
+      "header"
+      "sidebar"
+      "main"
+      "footer";
+    grid-template-columns: 1fr; /* Ocupa toda a largura disponível */
+    grid-template-rows: 80px auto 1fr 80px; /* Alturas ajustadas para tela menor */
+  }
+
+  .sidebar {
+    grid-area: sidebar;
+    width: 100%; /* Sidebar agora ocupa a largura total abaixo da largura de 1024px */
+    height: auto; /* Altura ajustável conforme o conteúdo */
+    overflow-y: auto;
+  }
+
+  .header,
+  .footer {
+    width: 100%; /* Garante que o header e o footer ocupem a largura total */
+  }
+
+  .menubar-right,
+  .header-breadcrumb,
+  .profile-item {
+    display: none; /* Esconde elementos que podem ocupar muito espaço */
+  }
+}
+
+table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table caption {
+  font-size: 1.5em;
+  margin: 0.5em 0 0.75em;
+}
+
+table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: 0.35em;
+}
+
+table th,
+table td {
+  padding: 0.625em;
+  text-align: center;
+}
+
+table th {
+  font-size: 0.85em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .app-logo span {
+    font-size: 20px; /* Reduz o tamanho da fonte do texto do logo */
+  }
+
+  .main,
+  .footer {
+    padding: 10px; /* Reduz o padding para economizar espaço */
+  }
+
+  .header {
+    height: 60px; /* Reduz a altura do header */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: 0.625em;
+  }
+
+  .p-datatable tr td  {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 1.0em;
+    text-align: right;
+    
+    min-height: 35px;
+  }
+
+  table td span::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  table td:last-child {
+    border-bottom: 0;
+  }
+
+  .app-logo {
+    flex-direction: column; /* Empilha o logo e o texto verticalmente */
+    align-items: center; /* Centraliza os itens */
+  }
+
+  .app-logo img {
+    width: 48px; /* Reduz o tamanho do logo */
+    height: 48px;
+  }
+
+  .app-logo span {
+    margin: 0; /* Remove a margem para evitar espaçamento desnecessário */
+  }
+
+  .sidebar {
+    padding: 5px; /* Reduz o padding do sidebar */
+  }
+
+  .menu-item .p-menuitem-content {
+    width: 100%; /* Ajusta os itens do menu para preencher o espaço */
+    margin: 0;
+  }
+
+}
