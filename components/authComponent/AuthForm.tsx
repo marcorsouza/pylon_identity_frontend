@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode } from "react";
 
 interface AuthFormProps {
   children: ReactNode;
@@ -8,9 +8,7 @@ interface AuthFormProps {
 const AuthForm: React.FC<AuthFormProps> = ({ children, onSubmit }) => {
   return (
     <div className="auth-form">
-      <form onSubmit={onSubmit}>
-        {children}
-      </form>
+      <form onSubmit={onSubmit}>{children}</form>
     </div>
   );
 };

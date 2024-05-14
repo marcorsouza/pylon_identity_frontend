@@ -1,46 +1,37 @@
-// pages/ListUsers.tsx
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { Button } from "primereact/button";
 import { confirmDialog } from "primereact/confirmdialog";
-import { InputText } from "primereact/inputtext";
-import { Dropdown } from "primereact/dropdown";
 
-const lockedOutOptions = [
-  { label: "All", value: null },
-  { label: "Yes", value: true },
-  { label: "No", value: false },
-];
+import { useSession } from "next-auth/react";
 
-export default function ListUsers() {
+import { useUserStore } from "../../../store/userStore";
+import { AuthSession } from "../../../types/AuthData";
+import { UserPublic } from "../../../types/UserTypes";
+import { DateTime } from "luxon";
+
+interface ColumnProps {
+  field: keyof UserPublic;
+  header: string;
+}
+
+const ListUsers: React.FC = () => {
+  const { data: session } = useSession();
+  const props = session as AuthSession;
+  //props.accessToken;
+
+  const { getUsers, setToken, users } = useUserStore();
+
   const router = useRouter();
 
-  const exampleUsers = [
-    {
-      id: 1,
-      name: "John Doe",
-      email: "john.doe@example.com",
-      username: "johndoe",
-      isLockedOut: false,
-      creationDate: "2023-05-01",
-      lastLoginDate: "2023-05-05",
-      lastChange: "2023-05-03",
-    },
-    {
-      id: 2,
-      name: "Jane Doe",
-      email: "jane.doe@example.com",
-      username: "janedoe",
-      isLockedOut: true,
-      creationDate: "2023-04-01",
-      lastLoginDate: "2023-04-05",
-      lastChange: "2023-04-03",
-    },
-  ];
-
-  const [users, setUsers] = useState(exampleUsers);
+  useEffect(() => {
+    if (session) {
+      setToken(props.accessToken); // Defina o token se você estiver gerenciando isso no store
+      getUsers();
+    }
+  }, [props, setToken, getUsers]);
 
   const deleteUser = (id: number) => {
     confirmDialog({
@@ -48,11 +39,31 @@ export default function ListUsers() {
       header: "Confirmation",
       icon: "pi pi-exclamation-triangle",
       accept: () => {
-        setUsers(users.filter((user) => user.id !== id));
-        // Lógica para chamar API de deleção aqui
+        //        setUsers(users.filter(user => user.id !== id));
+        // Logic to call deletion API here
       },
     });
   };
+
+  const formatDateTime = (dateString: string | null | undefined) => {
+    if (!dateString) return "—";
+
+    // Tentando converter a string ISO para DateTime
+    const date = DateTime.fromISO(dateString);
+
+    // Checa se a conversão foi bem-sucedida e formata a data
+    return date.isValid ? date.toFormat("dd/LL/yyyy HH:mm") : "—";
+  };
+
+  const responsiveTemplate = (data: UserPublic, props: ColumnProps) => (
+    <span data-label={props.header}>
+      {props.field === "creation_date" ||
+      props.field === "last_login_date" ||
+      props.field === "last_change"
+        ? formatDateTime(data[props.field])
+        : data[props.field].toString()}
+    </span>
+  );
 
   return (
     <div>
@@ -63,22 +74,77 @@ export default function ListUsers() {
         style={{ marginBottom: "10px" }}
         onClick={() => router.push("/admin/users/create")}
       />
-      <DataTable
-        className="crud-grid"
-        value={users}
-        paginator
-        paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
-        rows={1}
-      >
-        <Column field="id" header="ID" />
-        <Column field="name" header="Name" />
-        <Column field="email" header="Email" />
-        <Column field="username" header="Username" />
-        <Column field="isLockedOut" header="Is Locked Out?" />
-        <Column field="creationDate" header="Creation Date" />
-        <Column field="lastLoginDate" header="Last Login Date" />
-        <Column field="lastChange" header="Last Change" />
+      <DataTable className="crud-grid" value={users ?? []} paginator rows={10}>
         <Column
+          field="id"
+          header="ID"
+          body={(data) =>
+            responsiveTemplate(data, { field: "id", header: "ID" })
+          }
+        />
+        <Column
+          field="name"
+          header="Name"
+          body={(data) =>
+            responsiveTemplate(data, { field: "name", header: "Name" })
+          }
+        />
+        <Column
+          field="email"
+          header="Email"
+          body={(data) =>
+            responsiveTemplate(data, { field: "email", header: "Email" })
+          }
+        />
+        <Column
+          field="username"
+          header="Username"
+          body={(data) =>
+            responsiveTemplate(data, { field: "username", header: "Username" })
+          }
+        />
+        <Column
+          field="is_locked_out"
+          header="Is Locked Out?"
+          body={(data) =>
+            responsiveTemplate(data, {
+              field: "is_locked_out",
+              header: "Is Locked Out?",
+            })
+          }
+        />
+        <Column
+          field="creation_date"
+          header="Creation Date"
+          body={(data) =>
+            responsiveTemplate(data, {
+              field: "creation_date",
+              header: "Creation Date",
+            })
+          }
+        />
+        <Column
+          field="last_login_date"
+          header="Last Login Date"
+          body={(data) =>
+            responsiveTemplate(data, {
+              field: "last_login_date",
+              header: "Last Login Date",
+            })
+          }
+        />
+        <Column
+          field="last_change"
+          header="Last Change"
+          body={(data) =>
+            responsiveTemplate(data, {
+              field: "last_change",
+              header: "Last Change",
+            })
+          }
+        />
+        <Column
+          header="Actions"
           body={(rowData) => (
             <span className="grid-actions">
               <Button
@@ -93,9 +159,10 @@ export default function ListUsers() {
               />
             </span>
           )}
-          header="Actions"
         />
       </DataTable>
     </div>
   );
-}
+};
+
+export default ListUsers;

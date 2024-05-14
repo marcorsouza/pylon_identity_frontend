@@ -9,15 +9,13 @@ import "../styles/notfound.css";
 import "../styles/crud.css";
 
 import { AppProps } from "next/app";
-import Layout from "../components/Layout/layout";
-import LoginLayout from "../components/Layout/LoginLayout";
+import Layout from "../components/layout/layout";
+import LoginLayout from "../components/layout/LoginLayout";
 import NotFoundPage from "../components/NotFoundPage";
+import AuthProvider from "@/auth-provider";
 
 function MyApp({ Component, pageProps, router }: AppProps) {
-  const isLoginPage =
-    router.pathname === "/auth/login" ||
-    router.pathname === "/auth/register" ||
-    router.pathname === "/auth/forgot-password"; // Verifica se a rota é '/login'
+  const isLoginPage = /^\/auth(\/|$)/.test(router.pathname);
   const isNotFound = pageProps.statusCode === 404; // Verifica se a rota é '/404'
 
   // Escolha o Layout com base na rota
@@ -29,9 +27,11 @@ function MyApp({ Component, pageProps, router }: AppProps) {
   }
 
   return (
-    <LayoutComponent>
-      <Component {...pageProps} />
-    </LayoutComponent>
+    <AuthProvider>
+      <LayoutComponent>
+        <Component {...pageProps} />
+      </LayoutComponent>
+    </AuthProvider>
   );
 }
 

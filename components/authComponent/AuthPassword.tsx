@@ -1,9 +1,15 @@
 // components/auth/AuthInput.tsx
-import React from 'react';
-import { Password } from 'primereact/password';
+import React from "react";
+import { Password } from "primereact/password";
 
-
-const AuthPassword: React.FC<AuthInputsPasswordProps> = ({ fieldname, label, value, onChange, autoFocus = false, feedback = false }) => {
+const AuthPassword: React.FC<AuthInputsPasswordProps> = ({
+  fieldname,
+  label,
+  value,
+  onChange,
+  autoFocus = false,
+  feedback = false,
+}) => {
   return (
     <div className="auth-input">
       <label htmlFor={fieldname}>{label}</label>
