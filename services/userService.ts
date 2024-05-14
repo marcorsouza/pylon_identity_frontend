@@ -1,16 +1,14 @@
 import { axiosClient } from "./axios";
 import { AxiosError } from "axios";
 
-
-
 export default class LoginService {
   async getUsers(token: string) {
     const url = "http://127.0.0.1:8000/admin/users";
     try {
       const response = await axiosClient.get(url, {
         headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
         },
       });
 
@@ -29,4 +27,4 @@ export default class LoginService {
       }
     }
   }
-}  
+}

@@ -208,7 +208,7 @@ table {
   border-collapse: collapse;
   margin: 0;
   padding: 0;
-  width: 100%;  
+  width: 100%;
 }
 
 table caption {
@@ -226,8 +226,6 @@ table th,
 table td {
   padding: 0.625em;
 }
-
-
 
 table th {
   font-size: 0.85em;
@@ -276,12 +274,12 @@ table th {
     margin-bottom: 0.625em;
   }
 
-  .p-datatable tr td  {
+  .p-datatable tr td {
     border-bottom: 1px solid #ddd;
     display: block;
-    font-size: 1.0em;
+    font-size: 1em;
     text-align: right;
-    
+
     min-height: 35px;
   }
 
@@ -322,5 +320,4 @@ table th {
     width: 100%; /* Ajusta os itens do menu para preencher o espaço */
     margin: 0;
   }
-
 }
