@@ -21,7 +21,7 @@
       "@/*": ["./*"]
     }*/,
     "paths": {
-      "@/*": ["./components/*", "./pages/*"] // Ajuste conforme sua organização de arquivos
+      "@/*": ["./components/*", "./pages/*", "./hooks/*", "./store/*"] // Ajuste conforme sua organização de arquivos
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

@@ -36,6 +36,16 @@
   color: var(--blue-900) !important;
 }
 
+.p-datatable td {
+  font-size: .95em;
+}
+
+.grid-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .grid-actions button:not(first-child) {
   margin-left: 5px;
 }

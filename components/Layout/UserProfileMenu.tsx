@@ -1,9 +1,11 @@
+import { signOut } from "next-auth/react";
+import { useAuthStore } from "@/authStore";
 import React, { useRef } from "react";
 import { Menu } from "primereact/menu";
 import { Avatar } from "primereact/avatar";
 export default function UserProfileMenu() {
   const menu = useRef<Menu>(null);
-
+  const { logout } = useAuthStore();
   const items = [
     {
       label: "Privacy",
@@ -18,7 +20,7 @@ export default function UserProfileMenu() {
     {
       label: "Logout",
       icon: "pi pi-sign-out",
-      command: () => console.log("Logging out"),
+      command: () => logout(),
     },
   ];
 
@@ -34,7 +36,7 @@ export default function UserProfileMenu() {
   return (
     <>
       <Avatar
-        image="/images/avatar-m-1.png"
+        image="/images/avatar.png"
         size="large"
         shape="circle"
         className="user-avatar"
