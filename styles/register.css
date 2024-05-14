@@ -1,0 +1,198 @@
+/* styles/login.css */
+
+.outer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom, #231f31 0%, #0a061a 100%);
+}
+
+.login-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 70%; /* Adjust based on your preference */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25); /* Optional shadow for emphasis */
+  height: 60%;
+}
+
+.form-background {
+  background: linear-gradient(to bottom, #342c52 0%, var(--blue-500) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.logo-container {
+  text-align: center; /* Centers the text horizontally */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers content vertically */
+  align-items: center; /* Ensures items are centered horizontally */
+}
+
+.logo-container img {
+  width: 120px; /* Adjust size as needed */
+  margin-bottom: 10px; /* Space between logo and text */
+}
+
+.logo-container h1 {
+  color: white;
+  margin: 0; /* Removes any default margin */
+}
+
+/*
+.login-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    to bottom,
+    rgb(224, 222, 222) 0%,
+    var(--cyan-50) 100%
+  );
+}
+*/
+form.p-fluid {
+  width: 360px;
+  padding: 20px;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.p-field {
+  margin-bottom: 1.5em;
+  display: flex;
+  flex-direction: column;
+}
+
+.p-field input,
+.p-field .p-password input {
+  padding: 0.8em 2.5em;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  width: 100%; /* Garante que o input use toda a largura disponível */
+  font-size: 0.975rem !important;
+}
+
+.p-field input::placeholder,
+.p-field .p-password input::placeholder {
+  color: #888; /* Define a cor dos placeholders */
+}
+
+.p-field input:focus,
+.p-field .p-password input:focus {
+  border-color: #125386; /* Cor do tema para o foco */
+}
+
+.p-field-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 1em;
+  font-size: 0.975rem !important;
+  color: var(--blue-800) !important;
+}
+
+.p-field-checkbox label {
+  margin-left: 0.5em;
+}
+
+.forgot-password-link {
+  margin-left: auto; /* Aligns the link to the right */
+  color: var(--blue-800) !important;
+}
+
+.register-link {
+  display: block; /* Makes the link full width */
+  text-align: center; /* Centers the link text */
+  color: #007ad9;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 0.25rem !important;
+  color: var(--blue-800) !important;
+}
+
+.register-link:hover,
+.forgot-password-link:hover {
+  text-decoration: underline;
+}
+
+.form-links {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 2em;
+}
+
+.register-link,
+.forgot-password-link {
+  color: #007ad9;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.register-link:hover,
+.forgot-password-link:hover {
+  text-decoration: underline;
+}
+
+.form-sign {
+  font-size: 0.975rem !important;
+  color: var(--blue-900) !important;
+}
+
+/* styles/register.css */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: linear-gradient(
+    to bottom,
+    rgb(224, 222, 222) 0%,
+    var(--cyan-50) 100%
+  );
+}
+
+.register-form form {
+  width: 340px;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.register-title {
+  font-size: 1.5rem;
+  text-align: center;
+  color: var(--blue-900, #0d3c61);
+  font-family: var(--font-family);
+}
+
+.register-form .p-field {
+  margin-bottom: 1.5em;
+}
+
+.register-form input {
+  width: 100%;
+  padding: 0.8em 2.5em;
+  border-radius: 8px;
+}
+
+.register-button {
+  gap: 1rem !important;
+}
+
+.register-button .btn-register.p-button {
+  background-color: var(--blue-900, #0d3c61);
+  border-color: var(--blue-900, #0d3c61);
+}
+
+.register-button .btn-register.p-button:hover {
+  background-color: #09507a;
+  border-color: #09507a;
+}
